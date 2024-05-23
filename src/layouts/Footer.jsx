@@ -1,4 +1,6 @@
 import React from 'react'
+import NewsLetter from '../components/front/NewsLetter'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
@@ -16,57 +18,16 @@ export default function Footer() {
                     </div>
                     <div className="col-lg-8 col-md-12">
                         <div className="row">
-                            <div className="col-md-4 mb-5">
+                            <div className="col-md-8 mb-5">
                                 <h5 className="font-weight-bold text-dark mb-4">Quick Links</h5>
                                 <div className="d-flex flex-column justify-content-start">
-                                    <a className="text-dark mb-2" href="index.html"><i className="fa fa-angle-right mr-2"></i>Home</a>
-                                    <a className="text-dark mb-2" href="shop.html"><i className="fa fa-angle-right mr-2"></i>Our Shop</a>
-                                    <a className="text-dark mb-2" href="detail.html"><i className="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                                    <a className="text-dark mb-2" href="cart.html"><i className="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                                    <a className="text-dark mb-2" href="checkout.html"><i className="fa fa-angle-right mr-2"></i>Checkout</a>
-                                    <a className="text-dark" href="contact.html"><i className="fa fa-angle-right mr-2"></i>Contact Us</a>
+                                    <Link className="text-dark mb-2" to="/"><i className="fa fa-angle-right mr-2"></i>Home</Link>
+                                    <Link className="text-dark mb-2" to="/category"><i className="fa fa-angle-right mr-2"></i>Our Shop</Link>
                                 </div>
                             </div>
-                            <div className="col-md-4 mb-5">
-                                <h5 className="font-weight-bold text-dark mb-4">Quick Links</h5>
-                                <div className="d-flex flex-column justify-content-start">
-                                    <a className="text-dark mb-2" href="index.html"><i className="fa fa-angle-right mr-2"></i>Home</a>
-                                    <a className="text-dark mb-2" href="shop.html"><i className="fa fa-angle-right mr-2"></i>Our Shop</a>
-                                    <a className="text-dark mb-2" href="detail.html"><i className="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                                    <a className="text-dark mb-2" href="cart.html"><i className="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                                    <a className="text-dark mb-2" href="checkout.html"><i className="fa fa-angle-right mr-2"></i>Checkout</a>
-                                    <a className="text-dark" href="contact.html"><i className="fa fa-angle-right mr-2"></i>Contact Us</a>
-                                </div>
-                            </div>
-                            <div className="col-md-4 mb-5">
-                                <h5 className="font-weight-bold text-dark mb-4">Newsletter</h5>
-                                <form action="">
-                                    <div className="form-group">
-                                        <input type="text" className="form-control border-0 py-4" placeholder="Your Name" required="required" />
-                                    </div>
-                                    <div className="form-group">
-                                        <input type="email" className="form-control border-0 py-4" placeholder="Your Email"
-                                            required="required" />
-                                    </div>
-                                    <div>
-                                        <button className="btn btn-primary btn-block border-0 py-3" type="submit">Subscribe Now</button>
-                                    </div>
-                                </form>
-                            </div>
+                
+                            <NewsLetter />
                         </div>
-                    </div>
-                </div>
-                <div className="row border-top border-light mx-xl-5 py-4">
-                    <div className="col-md-6 px-xl-0">
-                        <p className="mb-md-0 text-center text-md-left text-dark">
-                            &copy; <a className="text-dark font-weight-semi-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed
-                            by
-                            <a className="text-dark font-weight-semi-bold" href="https://htmlcodex.com">HTML Codex</a><br />
-                            Distributed By <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                        </p>
-                    </div>
-                    <div className="col-md-6 px-xl-0 text-center text-md-right">
-                        <img className="img-fluid" src="img/payments.png" alt="" />
                     </div>
                 </div>
             </div>
