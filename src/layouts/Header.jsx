@@ -58,21 +58,20 @@ export default function Header() {
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.html" class="nav-item nav-link">Home</a>
-                                <a href="shop.html" class="nav-item nav-link">Shop</a>
-                                <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
-                                <div class="nav-item dropdown">
+                                <Link to="category" class="nav-item nav-link">Shop</Link>
+                                {/* <a href="detail.html" class="nav-item nav-link">Shop Detail</a> */}
+                                {/* <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="cart.html" class="dropdown-item">Shopping Cart</a>
                                         <a href="checkout.html" class="dropdown-item">Checkout</a>
                                     </div>
-                                </div>
-                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                </div> */}
+                                {/* <a href="contact.html" class="nav-item nav-link">Contact</a> */}
                             </div>
                             <div class="navbar-nav ml-auto py-0">
-                                <a href="" class="nav-item nav-link">Login</a>
-                                <a href="" class="nav-item nav-link">Register</a>
+                                <Link to="/login" class="nav-item nav-link">Login</Link>
+                                <Link to="/register" class="nav-item nav-link">Register</Link>
                             </div>
                         </div>
                     </nav>
