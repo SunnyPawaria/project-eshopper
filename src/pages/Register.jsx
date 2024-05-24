@@ -10,7 +10,7 @@ export default function Register() {
                     <h3 className="card-title text-center">Register</h3>
                     <div className="card-text">
                         <div className="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div>
-                        <form>
+                        <form className='form'>
                             <div className="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" name='name' className="form-control" id="name" />
