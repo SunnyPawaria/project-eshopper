@@ -3,11 +3,11 @@ import ProductItem from './ProductItem'
 
 export default function JustArrival() {
   return (
-    <div class="container-fluid pt-5">
-                <div class="text-center mb-4">
-                    <h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>
+    <div className="container-fluid pt-5">
+                <div className="text-center mb-4">
+                    <h2 className="section-title px-5"><span className="px-2">Just Arrived</span></h2>
                 </div>
-                <div class="row px-xl-5 pb-3">
+                <div className="row px-xl-5 pb-3">
                     <ProductItem/>
                     <ProductItem/>
                     <ProductItem/>
