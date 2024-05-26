@@ -10,7 +10,7 @@ export default function Login() {
                     <h3 className="card-title text-center">Login</h3>
                     <div className="card-text">
                         <div className="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div>
-                        <form>
+                        <form className='form'>
                             <div className="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" className="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" />

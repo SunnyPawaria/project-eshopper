@@ -1,10 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Category() {
   return (
     <div className="card">
-      <div className='card-header bg-primary '>
-        <h5 className='text-white'>Category </h5>
+      <div className='card-header bg-primary'>
+        <h5 className='text-white' >Category 
+          <Link to='/admin/category/add' className='btn btn-success' style={{
+            float: "right"
+          }}>Add Category</Link>
+        </h5>
       </div>
       <div className="card-body">
         <div className='table-responsive'>
