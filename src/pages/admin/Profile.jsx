@@ -9,7 +9,7 @@ export default function Profile() {
           Name
         </div>
         <div>
-          Sunny
+          Sunny  
         </div>
       </li>
       <li className="list-group-item d-flex justify-content-between">

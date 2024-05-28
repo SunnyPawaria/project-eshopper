@@ -25,7 +25,6 @@ export default function Footer() {
                                     <Link className="text-dark mb-2" to="/category"><i className="fa fa-angle-right mr-2"></i>Our Shop</Link>
                                 </div>
                             </div>
-                
                             <NewsLetter />
                         </div>
                     </div>

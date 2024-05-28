@@ -13,6 +13,5 @@ export default function CategoryItem() {
                 <h5 className="font-weight-semi-bold m-0">Men's dresses</h5>
             </div>
         </div>
-
     )
 }

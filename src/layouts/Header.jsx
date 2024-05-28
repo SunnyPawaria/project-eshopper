@@ -62,7 +62,7 @@ export default function Header() {
                             </div>
                             <div className="navbar-nav ml-auto py-0">
                                 <div className="nav-item dropdown">
-                                    <a href="#" className="nav-link dropdown-toggle active" data-toggle="dropdown">Sunny</a>
+                                    <a href="#" className="nav-link dropdown-toggle active" data-toggle="dropdown">Deepak</a>
                                     <div className="dropdown-menu rounded-0 m-0">
                                         <Link to="/admin" className="dropdown-item">Profile</Link>
                                         <Link to="/admin/orders" className="dropdown-item">Orders</Link>
