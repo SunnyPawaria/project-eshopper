@@ -1,9 +1,11 @@
-import { combineReducers } from "redux";
+import { combineReducers } from "@reduxjs/toolkit";
 import CategoryReducer from "./category.reducer";
+import {reducer as toastrReducer} from 'react-redux-toastr'
 
 const combineReducer = () =>{
     return combineReducers({
-        category: CategoryReducer
+        category: CategoryReducer,
+        toastr: toastrReducer
     })
 } 
     

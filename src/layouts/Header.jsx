@@ -58,20 +58,9 @@ export default function Header() {
                         </button>
                         <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div className="navbar-nav mr-auto py-0">
-                                <Link to="category" className="nav-item nav-link">Shop</Link>
-                                {/* <a href="detail.html" className="nav-item nav-link">Shop Detail</a> */}
-                                {/* <div className="nav-item dropdown">
-                                    <a href="#" className="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
-                                    <div className="dropdown-menu rounded-0 m-0">
-                                        <a href="cart.html" className="dropdown-item">Shopping Cart</a>
-                                        <a href="checkout.html" className="dropdown-item">Checkout</a>
-                                    </div>
-                                </div> */}
-                                {/* <a href="contact.html" className="nav-item nav-link">Contact</a> */}
+                                <Link to="/category" className="nav-item nav-link">Shop</Link>
                             </div>
                             <div className="navbar-nav ml-auto py-0">
-
-                                {/* <Link to="/admin" className="nav-item nav-link">Dashboard</Link> */}
                                 <div className="nav-item dropdown">
                                     <a href="#" className="nav-link dropdown-toggle active" data-toggle="dropdown">Sunny</a>
                                     <div className="dropdown-menu rounded-0 m-0">
@@ -82,7 +71,7 @@ export default function Header() {
                                         <Link to="/admin/users" className="dropdown-item">User</Link>
                                         <button className="dropdown-item">Logout</button>
                                     </div>
-                                </div>
+                                </div> 
                                 <Link to="/login" className="nav-item nav-link">Login</Link>
                                 <Link to="/register" className="nav-item nav-link">Register</Link>
                             </div>

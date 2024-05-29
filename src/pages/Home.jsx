@@ -12,11 +12,13 @@ export default function Home() {
         <>
             <Slider />
             <Feature />
-            <CategoryComponent/>
-            <Advertisement/>
-            <Trending/>
+            <CategoryComponent />
+
+            <Advertisement />
+
+            <Trending />
             
-            <JustArrival/>
+            <JustArrival />
             <div className="container-fluid py-5">
                 <div className="row px-xl-5">
                     <div className="col">

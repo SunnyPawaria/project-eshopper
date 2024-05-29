@@ -1,10 +1,7 @@
 import { ADD_CATEGORY_SUCCESS, GET_CATEGORY_SUCCESS } from "../constant/category.constant";
 
 const initialState = {
-    categories: [{
-        name: "test",
-        status: "active"
-    }]
+    categories: localStorage.getItem('category') ? JSON.parse(localStorage.getItem('category')) : []
 }
 
 let d = [];
@@ -12,26 +9,28 @@ let d = [];
 const CategoryReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case GET_CATEGORY_SUCCESS:
+        case GET_CATEGORY_SUCCESS: 
             d = [...action.payload];
 
-            localStorage.setItem('category', JSON.stringify(d));
+            localStorage.setItem('category', JSON.stringify(d))
 
-            return{
+            return {
                 ...state,
-                categories:d
+                categories: d
             }
 
         case ADD_CATEGORY_SUCCESS:
             d = [...state.categories, action.payload];
 
-            localStorage.setItem('category', JSON.stringify(d));
+            localStorage.setItem('category', JSON.stringify(d))
+
             return {
                 ...state,
                 categories: d
             }
+    
         default:
-            return state;
+            return state
     }
 }
 

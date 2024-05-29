@@ -6,9 +6,7 @@ export default function Category() {
   return (
     <div className="container-fluid pt-5">
         <div className="row px-xl-5">
-            <div className="col-lg-3 col-md-12">
-                <Filter/>
-            </div>
+            <Filter />
             <div className="col-lg-9 col-md-12">
                 <div className="row pb-3">
                     <div className="col-12 pb-1">
@@ -36,11 +34,14 @@ export default function Category() {
                             </div>
                         </div>
                     </div>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
-                    
+                    <ProductItem />
+                    <ProductItem />
+                    <ProductItem />
+                    <ProductItem />
+                    <ProductItem />
+                    <ProductItem />
+                    <ProductItem />
+                    <ProductItem />
                     {/* <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div className="card product-item border-0 mb-4">
                             <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
@@ -57,8 +58,8 @@ export default function Category() {
                                 <a href="" className="btn btn-sm text-dark p-0"><i className="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
+                    </div> */}
+                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div className="card product-item border-0 mb-4">
                             <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img className="img-fluid w-100" src="img/product-2.jpg" alt="" />
@@ -74,8 +75,8 @@ export default function Category() {
                                 <a href="" className="btn btn-sm text-dark p-0"><i className="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
+                    </div> */}
+                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div className="card product-item border-0 mb-4">
                             <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img className="img-fluid w-100" src="img/product-3.jpg" alt="" />
@@ -159,8 +160,8 @@ export default function Category() {
                                 <a href="" className="btn btn-sm text-dark p-0"><i className="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                             </div>
                         </div>
-                    </div> */}
-                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
+                    </div>
+                    <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div className="card product-item border-0 mb-4">
                             <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img className="img-fluid w-100" src="img/product-8.jpg" alt="" />
@@ -176,8 +177,8 @@ export default function Category() {
                                 <a href="" className="btn btn-sm text-dark p-0"><i className="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
+                    </div> */}
+                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div className="card product-item border-0 mb-4">
                             <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img className="img-fluid w-100" src="img/product-1.jpg" alt="" />
