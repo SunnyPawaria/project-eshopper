@@ -14,9 +14,19 @@ export default function Category() {
     dispatch(getCategoryStart())
   }, [categories.length])
 
+
+  const { category: { categories } } = useSelector(state => state);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategoryStart())
+  }, [categories.length])
+
   return (
     <div className="card">
       <div className='card-header bg-primary'>
+        <h5 className='text-white' >Category
         <h5 className='text-white' >Category
           <Link to='/admin/category/add' className='btn btn-success' style={{
             float: "right"
@@ -28,6 +38,12 @@ export default function Category() {
           <table className="table table-striped">
             <thead className='bg-primary text-white'>
               <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Action</th>
+
                 <th>#</th>
                 <th>Image</th>
                 <th>Name</th>
@@ -63,3 +79,4 @@ export default function Category() {
     </div>
   )
 }
+

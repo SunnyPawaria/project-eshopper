@@ -16,6 +16,7 @@ function* getCategory() {
 function* addCategory({payload}) {
     try {
         yield addCategoryFirebase(payload);
+        yield addCategoryFirebase(payload);
         yield put(addCategorySuccess(payload))
     } catch (error) {
         yield put(addCategoryError(error.message))
@@ -41,6 +42,7 @@ function* deleteCategory({payload}) {
 }
 
 export function* category() {
+    yield takeLatest(GET_CATEGORY_START, getCategory);
     yield takeLatest(GET_CATEGORY_START, getCategory);
     yield takeLatest(ADD_CATEGORY_START, addCategory);
     yield takeLatest(EDIT_CATEGORY_START, editCategory);
