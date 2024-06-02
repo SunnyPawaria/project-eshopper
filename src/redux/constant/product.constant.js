@@ -1,0 +1,9 @@
+// get product
+export const GET_PRODUCT_START = "GET_PRODUCT_START";
+export const GET_PRODUCT_SUCCESS = "GET_PRODUCT_SUCCESS";
+export const GET_PRODUCT_ERROR = "GET_PRODUCT_ERROR";
+
+// add product
+export const ADD_PRODUCT_START = "ADD_PRODUCT_START";
+export const ADD_PRODUCT_SUCCESS = "ADD_PRODUCT_SUCCESS";
+export const ADD_PRODUCT_ERROR = "ADD_PRODUCT_ERROR";
