@@ -37,7 +37,6 @@ export default function AddOrUpdate() {
 
   const inputChange = (event) => {
     if (event.target.type === 'file') {
-
       const storageRef = ref(storage, event.target.files[0].name);
 
       const uploadTask = uploadBytesResumable(storageRef, event.target.files[0]);
@@ -128,7 +127,6 @@ export default function AddOrUpdate() {
               name='name'
               value={name}
               onChange={inputChange} />
-
           </div>
           <div className="mb-3">
             <label htmlFor="image" className="form-label">Image</label>
