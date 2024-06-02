@@ -35,8 +35,8 @@ export default function Router() {
             <Route index={true} element={<Profile />} /> 
             
             <Route path="products" element={<Product />} /> 
-            <Route path="products/add" element={<AddOrEdit />} /> 
-            <Route path="products/edit/:id" element={<AddOrEdit />} /> 
+            <Route path="product/add" element={<AddOrEdit />} /> 
+            <Route path="product/edit/:id" element={<AddOrEdit />} /> 
 
             <Route path="category" element={<AdminCategory />} /> 
             <Route path="category/add" element={<AddOrUpdate />} /> 
