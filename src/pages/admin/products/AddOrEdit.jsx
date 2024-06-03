@@ -8,23 +8,40 @@ import {
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../../../firebase-config";
 import { toastr } from "react-redux-toastr";
-import { addProductStart } from "../../../redux/action/product.action";
+import {
+  addProductStart,
+  editProductStart,
+} from "../../../redux/action/product.action";
 
-let initialValue = {
-  name: "",
-  image: "",
-  short_description: "",
-  description: "",
-  price: 0.0,
-  quantity: 0,
-  category_id: 0,
-  status: "",
-};
+let initialValue = {};
 
 export default function AddOrEdit() {
   const {
     category: { categories },
+    product: { products },
   } = useSelector((state) => state);
+
+  let { id } = useParams();
+
+  const navigate = useNavigate();
+
+  if (id) {
+    let product = products.find((value) => value.id === id);
+    if (product) {
+      initialValue = product;
+    }
+  } else {
+    initialValue = {
+      name: "",
+      image: "",
+      short_description: "",
+      description: "",
+      price: 0.0,
+      quantity: 0,
+      category_id: 0,
+      status: "",
+    };
+  }
 
   const activecategories = categories.filter((cat) => cat.status === "1");
   const [formData, setFormData] = useState(initialValue);
@@ -96,14 +113,23 @@ export default function AddOrEdit() {
 
   const submit = (event) => {
     event.preventDefault();
-    dispatch(addProductStart(formData));
+    if (id) {
+      dispatch(editProductStart(formData, id));
+      toastr.success("Product Updated Successfully");
+    } else {
+      dispatch(addProductStart(formData));
+      toastr.success("Product Added Successfully");
+    }
+    setTimeout(()=>{
+      navigate('/admin/products')
+    },5000)
   };
 
   return (
     <div className="card">
       <div className="card-header bg-primary">
         <h5 className="text-white">
-          Add Product
+          {id ? "Edit" : "Add"} Product
           <Link
             to="/admin/products"
             className="btn btn-success"
@@ -227,6 +253,19 @@ export default function AddOrEdit() {
                     {value.name}
                   </option>
                 ))}
+            </select>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="exampleCheck1">Status</label>
+            <select
+              className="form-select form-control"
+              name="status"
+              defaultValue={status}
+              onChange={inputChange}
+            >
+              <option>Select Status</option>
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
             </select>
           </div>
           <button type="submit" className="btn btn-primary">

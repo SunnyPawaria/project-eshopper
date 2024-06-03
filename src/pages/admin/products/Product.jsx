@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getProductStart } from "../../../redux/action/product.action";
+import { deleteProductStart, getProductStart } from "../../../redux/action/product.action";
+import { deleteCategoryStart } from "../../../redux/action/category.action";
 
 export default function Product() {
   const {
     product: { products },
+    category: { categories },
   } = useSelector((state) => state);
   console.log(products);
 
@@ -14,6 +16,14 @@ export default function Product() {
   useEffect(() => {
     dispatch(getProductStart());
   }, [products.length]);
+
+  const getCategoryName = (id) => {
+    let category = categories.find((value) => value.id === id);
+    if (category) {
+      return category.name;
+    }
+    return "";
+  };
 
   return (
     <div className="card">
@@ -49,7 +59,7 @@ export default function Product() {
             <tbody>
               {products.length > 0 &&
                 products.map((product, index) => (
-                  <tr>
+                  <tr key={index}>
                     <th>{index + 1}</th>
                     <td>
                       <img
@@ -61,18 +71,18 @@ export default function Product() {
                       />
                     </td>
                     <td>{product.name}</td>
-                    <td>ABC</td>
+                    <td>{getCategoryName(product.category_id)}</td>
                     <td>&#8377; {product.price}</td>
                     <td>{product.quantity}</td>
-                    <td>{product.status === "1" ? "Active" : "Inactive"}</td>
+                    <td>{product.status == "1" ? "Active" : "Inactive"}</td>
                     <td>
                       <Link
                         className="btn btn-warning mx-2"
-                        to={`/admin/product/edit`}
+                        to={`/admin/product/edit/${product.id}`}
                       >
                         Edit
                       </Link>
-                      <button className="btn btn-danger">Delete</button>
+                      <button className="btn btn-danger" onClick={()=>dispatch(deleteProductStart(product.id))}>Delete</button>
                     </td>
                   </tr>
                 ))}
