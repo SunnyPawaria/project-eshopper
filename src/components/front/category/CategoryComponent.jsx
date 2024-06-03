@@ -1,15 +1,19 @@
-import React from 'react'
-import CategoryItem from './CategoryItem'
+import React from "react";
+import CategoryItem from "./CategoryItem";
+import { useSelector } from "react-redux";
 
 export default function CategoryComponent() {
-    return (
-        <div className="container-fluid pt-5">
-            <div className="row px-xl-5 pb-3">
-
-                <CategoryItem />
-                <CategoryItem />
-                <CategoryItem />
-            </div>
-        </div>
-    )
+  const {
+    category: { categories },
+  } = useSelector((state) => state);
+  return (
+    <div className="container-fluid pt-5">
+      <div className="row px-xl-5 pb-3">
+        {categories.length > 0 &&
+          categories.map((category, index) => (
+            <CategoryItem category={category} key={index} />
+          ))}
+      </div>
+    </div>
+  );
 }

@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import {
-  addCategoryStart,
-  editCategoryStart,
-} from "../../../redux/action/category.action";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../../../firebase-config";
 import { toastr } from "react-redux-toastr";

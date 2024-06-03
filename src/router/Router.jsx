@@ -27,7 +27,7 @@ export default function Router() {
         <Route path='/cart' element={<CartDetails />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/details' element={<Details />} />
+        <Route path='/details/:id' element={<Details />} />
         <Route path='/category' element={<Category />} />
         <Route path="/" element={<Home />} />
 

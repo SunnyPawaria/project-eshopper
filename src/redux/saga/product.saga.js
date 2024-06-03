@@ -1,9 +1,7 @@
 import { put, takeLatest } from "redux-saga/effects";
 import {
   addProductError,
-  addProductSuccess,
   editProductError,
-  editProductSuccess,
   getProductError,
   getProductStart,
   getProductSuccess,
