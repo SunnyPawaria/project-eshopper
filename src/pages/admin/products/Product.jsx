@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteProductStart, getProductStart } from "../../../redux/action/product.action";
-import { deleteCategoryStart } from "../../../redux/action/category.action";
 
 export default function Product() {
   const {

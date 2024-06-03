@@ -1,8 +1,4 @@
 import {
-  ADD_CATEGORY_SUCCESS,
-  GET_CATEGORY_SUCCESS,
-} from "../constant/category.constant";
-import {
   ADD_PRODUCT_SUCCESS,
   GET_PRODUCT_SUCCESS,
 } from "../constant/product.constant";
