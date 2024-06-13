@@ -30,12 +30,9 @@ export const addUserError = (error) => ({
 })
 
 
-export const editUserStart = (data, id) => ({
+export const editUserStart = (data) => ({
     type: EDIT_USER_START,
-    payload: {
-        data,
-        id
-    }
+    payload: data
 })
 
 export const editUserSuccess = (data, id) => ({
@@ -57,7 +54,7 @@ export const deleteUserStart = (id) => ({
     payload: id
 })
 
-export const deleteUserSuccess = (data, id) => ({
+export const deleteUserSuccess = ( id) => ({
     type: DELETE_USER_SUCCESS,
     payload: id
 })
