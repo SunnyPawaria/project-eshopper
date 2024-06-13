@@ -4,30 +4,39 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { auth, storage } from "../../../firebase-config";
 import { toastr } from "react-redux-toastr";
 
-import { addUserStart } from "../../../redux/action/user.action";
+import { addUserStart, editUserStart } from "../../../redux/action/user.action";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-let initialValue = {
-  name: '',
-  email: '',
-  password: '',
-  type: 'Customer',
-  status: ''
-};
+let initialValue = {};
 
 export default function AddOrUpdate() {
+  const { id } = useParams();
 
-  const navigate = useNavigate()
+  const {
+    user: { users },
+  } = useSelector((state) => state);
+
+  if (id) {
+    let currentUser = users.find((user) => user.id === id);
+    if (currentUser) {
+      initialValue = currentUser;
+    } else {
+      initialValue = {
+        name: "",
+        email: "",
+        password: "",
+        type: "Customer",
+        status: "",
+      };
+    }
+  }
+
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState(initialValue);
 
-  const {
-    name,
-    email,
-    password,
-    type, status
-  } = formData;
+  const { name, email, password, type, status } = formData;
 
   const inputChange = (event) => {
     setFormData((prevValue) => ({
@@ -39,19 +48,29 @@ export default function AddOrUpdate() {
   const submit = async (event) => {
     event.preventDefault();
 
-    let user =await createUserWithEmailAndPassword(auth, formData.email,formData.password)
-    
-    formData.uid=user.user.uid;
-
-    delete formData.password;
-
-    dispatch(addUserStart(formData));
+    if(id){
+      dispatch(editUserStart(formData))
+    }else{
+      let user = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
   
-   console.log(user);
-    toastr.success("User Created Successfully");
+      formData.uid = user.user.uid;
+  
+      delete formData.password;
+  
+      dispatch(addUserStart(formData));
+  
+      console.log(user);
+      toastr.success("User Created Successfully");
+    }
+
+    
     setTimeout(() => {
-      navigate('/admin/users')
-    }, 5000)
+      navigate("/admin/users");
+    }, 5000);
   };
 
   return (
@@ -103,7 +122,8 @@ export default function AddOrUpdate() {
               onChange={inputChange}
             />
           </div>
-          <div className="mb-3">
+          {
+            id ===undefined ? <div className="mb-3">
             <label htmlFor="password" className="form-label">
               Password
             </label>
@@ -116,6 +136,8 @@ export default function AddOrUpdate() {
               onChange={inputChange}
             />
           </div>
+          :''
+          }
           <div className="mb-3">
             <label htmlFor="exampleCheck1">Status</label>
             <select

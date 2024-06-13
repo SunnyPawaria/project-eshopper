@@ -25,8 +25,9 @@ export const addUserFirebase = async (data) => {
     await addDoc(collectionRef, data);
 }
 
-export const updateUserFirebase = async (data,id) => {
-    let collectionRef = doc(db, "users", id);
+export const updateUserFirebase = async (data) => {
+    let collectionRef = doc(db, "users", data.id);
+    delete data.id
 
     await updateDoc(collectionRef, data);
 }

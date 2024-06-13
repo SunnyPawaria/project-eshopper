@@ -23,7 +23,7 @@ function* addUser({payload}) {
 
 function* editUser({payload}) {
     try {
-        yield updateUserFirebase(payload.data, payload.id);
+        yield updateUserFirebase(payload);
         yield put(getUserStart())
     } catch (error) {
         yield put(editUserError(error.message))
