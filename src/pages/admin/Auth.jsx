@@ -1,8 +1,20 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom';
-import Sidebar from './sidebar/Sidebar';
+import React, { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import Sidebar from "./sidebar/Sidebar";
+import { auth } from "../../firebase-config";
 
 export default function Auth() {
+  const navigate = useNavigate();
+  const checkUserAuthenticated = () => {
+    if(! auth.currentUser){
+      setTimeout(()=>{
+        navigate('/login')
+      },2000)
+    }
+  };
+  useEffect(() => {
+    checkUserAuthenticated();
+  },[auth.currentUser]);
   return (
     <div className="container-fluid offer pt-5">
       <div className="row px-xl-5">
@@ -14,5 +26,5 @@ export default function Auth() {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,11 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase-config";
+import { signOut } from "firebase/auth";
 
 export default function Header() {
   const {
     category: { categories },
   } = useSelector((state) => state);
+  const navigate = useNavigate();
+  const signOutFunc = async () => {
+    await signOut(auth);
+    navigate("login");
+  };
   return (
     <div className="container-fluid">
       <div className="row border-top px-xl-5">
@@ -74,39 +81,46 @@ export default function Header() {
                 </Link>
               </div>
               <div className="navbar-nav ml-auto py-0">
-                <div className="nav-item dropdown">
-                  <a
-                    href="#"
-                    className="nav-link dropdown-toggle active"
-                    data-toggle="dropdown"
-                  >
-                    Sunny
-                  </a>
-                  <div className="dropdown-menu rounded-0 m-0">
-                    <Link to="/admin" className="dropdown-item">
-                      Profile
-                    </Link>
-                    <Link to="/admin/orders" className="dropdown-item">
-                      Orders
-                    </Link>
-                    <Link to="/admin/products" className="dropdown-item">
-                      Product
-                    </Link>
-                    <Link to="/admin/category" className="dropdown-item">
-                      Category
-                    </Link>
-                    <Link to="/admin/users" className="dropdown-item">
-                      User
-                    </Link>
-                    <button className="dropdown-item">Logout</button>
+                {auth.currentUser ? (
+                  <div className="nav-item dropdown">
+                    <a
+                      href="#"
+                      className="nav-link dropdown-toggle active"
+                      data-toggle="dropdown"
+                    >
+                      Sunny
+                    </a>
+                    <div className="dropdown-menu rounded-0 m-0">
+                      <Link to="/admin" className="dropdown-item">
+                        Profile
+                      </Link>
+                      <Link to="/admin/orders" className="dropdown-item">
+                        Orders
+                      </Link>
+                      <Link to="/admin/products" className="dropdown-item">
+                        Product
+                      </Link>
+                      <Link to="/admin/category" className="dropdown-item">
+                        Category
+                      </Link>
+                      <Link to="/admin/users" className="dropdown-item">
+                        User
+                      </Link>
+                      <button className="dropdown-item" onClick={signOutFunc}>
+                        Logout
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <Link to="/login" className="nav-item nav-link">
-                  Login
-                </Link>
-                <Link to="/register" className="nav-item nav-link">
-                  Register
-                </Link>
+                ) : (
+                  <>
+                    <Link to="/login" className="nav-item nav-link">
+                      Login
+                    </Link>
+                    <Link to="/register" className="nav-item nav-link">
+                      Register
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </nav>
