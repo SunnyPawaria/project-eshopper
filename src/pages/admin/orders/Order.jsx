@@ -1,44 +1,50 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getOrderStart } from "../../../redux/action/order.action";
+import { Link } from "react-router-dom";
 
 export default function Order() {
+  const {
+    order: { orders },
+  } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getOrderStart());
+  }, [orders.length]);
   return (
     <div className="card">
-      <div className='card-header bg-primary '>
-        <h5 className='text-white'>Order </h5>
+      <div className="card-header bg-primary ">
+        <h5 className="text-white">Order </h5>
       </div>
       <div className="card-body">
-        <div className='table-responsive'>
+        <div className="table-responsive">
           <table className="table table-striped">
-            <thead className='bg-primary text-white'>
+            <thead className="bg-primary text-white">
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th>#</th>
+                <th>SubTotal</th>
+                <th>Tax</th>
+                <th>GrandTotal </th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
+              {orders.length > 0 &&
+                orders.map((order, index) => (
+                  <tr key={index}>
+                    <th>{index + 1}</th>
+                    <td>{order.cart.subTotal}</td>
+                    <td>{order.cart.tax}</td>
+                    <td>{order.cart.grandTotal}</td>
+                    <td> 
+                      <Link to={`/admin/orders/${order.id}`} className="btn btn-primary">View</Link>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
       </div>
     </div>
-  )
+  );
 }
